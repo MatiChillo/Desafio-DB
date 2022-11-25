@@ -9,9 +9,22 @@ router.get('/api/products', async (_req, res, next) => {
     try {
 
         const allProducts = await contDB.getAll();
-        
-        res.status(200).json( { products: allProducts } );
 
+        if ( allProducts.length > 0 ) {
+
+            res.status(200).json( { products: allProducts } );
+
+        } else {
+
+            res.status(500).json({
+
+                success: false,
+                error: "Nothing found"
+
+            });
+
+        }        
+        
     } catch (error) {
         
         next( error );

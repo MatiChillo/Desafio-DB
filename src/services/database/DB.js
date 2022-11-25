@@ -85,17 +85,6 @@ class DB {
 
             const data = await this.knex( this.table ).select('*');
 
-            if ( data.length == 0 ) {
-
-                return {
-
-                    success: false,
-                    message: 'Nothing found'
-
-                };
-
-            }
-
             const dataFormatted = data.map( i => JSON.parse( JSON.stringify( i ) ) );
 
             return dataFormatted;
