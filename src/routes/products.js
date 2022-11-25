@@ -162,8 +162,6 @@ router.get('/productos', async (_req, res, next) => {
 
     try {
 
-        await contDB.getAll();
-
         res.render( 'productos', { products: await contDB.getAll() } );
 
     } catch ( error ) {
