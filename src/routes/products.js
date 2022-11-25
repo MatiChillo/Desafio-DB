@@ -162,9 +162,7 @@ router.get('/productos', async (_req, res, next) => {
 
     try {
 
-        const prod = await contDB.getAll();
-
-        console.log(prod)
+        await contDB.getAll();
 
         res.render( 'productos', { products: await contDB.getAll() } );
 
